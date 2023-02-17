@@ -1,4 +1,4 @@
-package smv
+package structmemoryvisualization
 
 import (
 	"fmt"

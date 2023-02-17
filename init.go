@@ -1,4 +1,4 @@
-package smv
+package structmemoryvisualization
 
 import (
 	"image/color"
@@ -22,7 +22,7 @@ const wordSize = (32 << uintptr(^uintptr(0)>>63)) / 8
 
 func init() {
 	// Read and load the font
-	fontBytes, err := ioutil.ReadFile("../luxirr.ttf")
+	fontBytes, err := ioutil.ReadFile("luxirr.ttf")
 	if err != nil {
 		panic(err)
 	}
