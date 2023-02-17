@@ -1,11 +1,19 @@
 package structmemoryvisualization
 
 import (
+	"fmt"
 	"reflect"
 )
 
 // The main function
-func DrawMemory(structType reflect.Type, fileName string) {
+func DrawMemory(sampleStruct any, fileName string) {
+	structType := reflect.TypeOf(sampleStruct)
+	if structType.Kind() != reflect.Struct {
+		err := fmt.Errorf("non-struct type: %s", structType)
+		fmt.Println(err)
+		return
+	}
+
 	fieldList, memoryMap := detail(structType)
 	draw(fieldList, memoryMap, fileName)
 }

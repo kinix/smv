@@ -1,8 +1,6 @@
 package main
 
 import (
-	"reflect"
-
 	smv "github.com/kinix/struct-memory-visualization"
 )
 
@@ -16,5 +14,5 @@ type exampleStruct struct {
 }
 
 func main() {
-	smv.DrawMemory(reflect.TypeOf(exampleStruct{}), "image.png")
+	smv.DrawMemory(exampleStruct{}, "image.png")
 }
