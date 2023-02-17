@@ -2,10 +2,10 @@ package structmemoryvisualization
 
 import (
 	"image/color"
-	"io/ioutil"
 
 	"github.com/golang/freetype"
 	"github.com/golang/freetype/truetype"
+	"golang.org/x/image/font/gofont/goregular"
 )
 
 // Colors
@@ -21,13 +21,9 @@ var fontData *truetype.Font
 const wordSize = (32 << uintptr(^uintptr(0)>>63)) / 8
 
 func init() {
-	// Read and load the font
-	fontBytes, err := ioutil.ReadFile("luxirr.ttf")
-	if err != nil {
-		panic(err)
-	}
-
-	fontData, err = freetype.ParseFont(fontBytes)
+	// Load the font
+	var err error
+	fontData, err = freetype.ParseFont(goregular.TTF)
 	if err != nil {
 		panic(err)
 	}
